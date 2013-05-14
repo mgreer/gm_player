@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <script type="text/javascript" src="//s0.2mdn.net/instream/html5/ima3.js"></script>
+    <script type="text/javascript" src="main_controller.js"></script>
+    <script type="text/javascript" src="ads_controller.js"></script>
+    <script type="text/javascript" src="player_controller.js"></script>
+
+    <title>IMA HTML5 SDK Demo</title>
+  </head>
+  <body>
+  <div id="container">
+    <header>IMA HTML5 SDK Demo</header>
+
+    <div id="videoplayer">
+      <video id="content">
+        <source src="http://rmcdn.2mdn.net/Demo/vast_inspector/android.webm"></source>
+        <source src="http://rmcdn.2mdn.net/Demo/vast_inspector/android.mp4"></source>
+      </video>
+      <div id="adcontainer">
+      </div>
+      <button id="playpause">&#9654;</button>
+    </div>
+
+    <div id="console">
+    Welcome to IMA HTML5 SDK Demo!
+    </div>
+
+    <footer>Copyright (C) 2013 Google Inc.</footer>
+  </div>
+  <script type="text/javascript">
+  var mainController = null;
+
+  window.onload = function() {
+    mainController = new MainController(new PlayerController());
+  };
+  </script>
+  </body>
+</html>
