@@ -3,16 +3,51 @@
   <head>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 
+    <script type="text/javascript" src="http://s0.2mdn.net/instream/html5/gpt_proxy.js"></script>
     <script type="text/javascript" src="//s0.2mdn.net/instream/html5/ima3.js"></script>
     <script type="text/javascript" src="main_controller.js"></script>
     <script type="text/javascript" src="ads_controller.js"></script>
     <script type="text/javascript" src="player_controller.js"></script>
+
+
+
+    <script type='text/javascript'>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+      (function() {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        gads.src = '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+      })();
+      
+      function pushTag( $name, $size){
+        googletag.cmd.push(function() {
+          // Supply YOUR_NETWORK and YOUR_UNIT_PATH.
+          googletag.defineSlot('/YOUR_NETWORK/YOUR_UNIT_PATH', $size, $name)
+              .addService(googletag.companionAds())
+              .addService(googletag.pubads());
+          googletag.companionAds().setRefreshUnfilledSlots(true);
+          googletag.enableServices();
+          googletag.display( $name );
+        });      
+      }
+    </script>
 
     <title>IMA HTML5 SDK Demo</title>
   </head>
   <body>
   <div id="container">
     <header>IMA HTML5 SDK Demo</header>
+
+    <div id="companion-banner" style="width:728px; height:90px;">
+      <script type="text/javascript">
+        pushTag( 'companion-banner', [728, 90] );
+      </script>
+    </div>
+
 
     <div id="videoplayer">
       <video id="content">
@@ -22,7 +57,13 @@
       </div>
       <button id="playpause">&#9654;</button>
     </div>
-
+    
+    <div id="companion-medrec" style="width:300px; height:250px;">
+      <script type="text/javascript">
+        pushTag( 'companion-medrec', [300, 250] );
+      </script>
+    </div>
+    
     <div id="console">
     Welcome to IMA HTML5 SDK Demo!
     </div>
