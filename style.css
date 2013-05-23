@@ -52,18 +52,14 @@ footer {
   line-height: 0;
   opacity:1;
   transition: color 200ms, border-color 200ms;
-  box-shadow: 0px 0px 1px #aaa;
+  box-shadow: 0px 0px 2px #444;
+  text-shadow: 0 0 2px #444;
 }
 #playpause.playing{
   display:none;
 }
 #playpause.paused{
   display:block;
-}
-
-#container #playpause:hover {
-border-color:#FFD20F;
-  color: #FFD20F;
 }
 
 #content, #adcontainer {

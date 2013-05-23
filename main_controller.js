@@ -63,11 +63,16 @@ MainController.prototype.onClick = function() {
 
 MainController.prototype.updateChrome = function() {
   if (this.playing) {
+    //    if( !this.adsActive ){
     this.playButton.textContent = 'II';
+    this.playButton.className = "playing";
+    //    }
   } else {
     // Unicode play symbol.
-    this.playButton.textContent = String.fromCharCode(9654);
+      this.playButton.className = "paused";
+      this.playButton.textContent = String.fromCharCode(9654);
   }
+  
 };
 
 MainController.prototype.log = function(message) {
