@@ -25,9 +25,7 @@ footer {
 #videoplayer {
   position: relative;
   background-color: #000;
-  border-radius: 5px;
-  box-shadow: 0px 0px 20px rgba(50, 50, 50, 0.95);
-  border: 2px #ccc solid;
+  border: 1px #ccc solid;
   width: 640px;
   height: 360px;
 }
@@ -40,25 +38,32 @@ footer {
 
 #playpause {
   position: absolute;
-  top: 300px;
-  left: 20px;
-  height: 40px;
-  width: 100px;
-  border-style: none;
+  top: 40%;
+  left: 40%;
+  height: 2em;
+  width: 2em;
+  border-radius:1em;
   font-weight: bold;
-  font-size: 25px;
-  opacity: 0.5;
-  background-color: #fff;
-  border-radius: 5px;
-  border: 1px transparent solid;
-  color: #000;
+  font-size: 3em;
+  background: none;
+  border: 5px #fff solid;
+  color: #fff;
   cursor: pointer;
   line-height: 0;
+  opacity:1;
+  transition: color 200ms, border-color 200ms;
+  box-shadow: 0px 0px 1px #aaa;
+}
+#playpause.playing{
+  display:none;
+}
+#playpause.paused{
+  display:block;
 }
 
-#playpause:hover {
-  border: 1px #f00 solid;
-  color: #f00;
+#container #playpause:hover {
+border-color:#FFD20F;
+  color: #FFD20F;
 }
 
 #content, #adcontainer {
@@ -79,3 +84,4 @@ footer {
   border: 1px #ccc solid;
   overflow-y: scroll;
 }
+
