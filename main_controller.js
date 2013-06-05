@@ -16,6 +16,9 @@ var MainController = function(playerController) {
   this.adsDone = false;
 
   this.playerController = playerController;
+  
+  this.playerController.contentPlayer.controls = true;
+  
   this.adsController = new AdsController(this, this.playerController);
   this.adTagUrl = 'http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&iu=%2F6062%2Fiab_vast_samples&ciu_szs=300x250%2C728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cust_params=iab_vast_samples%3Dlinear';
 };
@@ -63,10 +66,8 @@ MainController.prototype.onClick = function() {
 
 MainController.prototype.updateChrome = function() {
   if (this.playing) {
-    //    if( !this.adsActive ){
     this.playButton.textContent = 'II';
     this.playButton.className = "playing";
-    //    }
   } else {
     // Unicode play symbol.
       this.playButton.className = "paused";
