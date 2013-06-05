@@ -6,10 +6,13 @@
 var AdsController = function(controller, player) {
   this.controller = controller;
   this.player = player;
+  this.adContainer =  this.player.adContainer
   this.adDisplayContainer =
-      new google.ima.AdDisplayContainer(this.player.adContainer);
+      new google.ima.AdDisplayContainer(this.adContainer);
   this.adsLoader = new google.ima.AdsLoader(this.adDisplayContainer);
   this.adsManager = null;
+  this.adContainer.style.width = this.player.width+"px";
+  this.adContainer.style.height = this.player.height+"px";
 
   this.adsLoader.addEventListener(
       google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,

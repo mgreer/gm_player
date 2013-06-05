@@ -2,14 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />	
-	<title>Acorn Media Player, Accessible and customizable HTML5 media player</title>	
-	<link href="website/css/amp-page-base.css" rel="stylesheet" type="text/css" />	
-	
-	<!-- Acorn Media Player specific -->
-	<link href="acornmediaplayer/acornmediaplayer.base.css" rel="stylesheet" type="text/css">
-	<!-- Theme -->
-	<link href="acornmediaplayer/themes/access/acorn.access.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+	<title>GM Player</title>	
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 
     <script type="text/javascript" src="http://s0.2mdn.net/instream/html5/gpt_proxy.js"></script>
     <script type="text/javascript" src="//s0.2mdn.net/instream/html5/ima3.js"></script>
@@ -46,69 +40,41 @@
 </head>
 <body>
 
-  <div id="companion-banner" style="width:728px; height:90px;">
-    <script type="text/javascript">
-      pushTag( 'companion-banner', [728, 90] );
-    </script>
-  </div>
+  <section>
+    <div id="companion-banner" style="width:728px; height:90px;">
+      <script type="text/javascript">
+        pushTag( 'companion-banner', [728, 90] );
+      </script>
+    </div>
+  </section>
 	
-	<section >
-		<figure>
-			<video id="content" controls="controls" width="826" height="360" poster="website/images/tos-poster.jpg" preload="metadata" aria-describedby="full-descript">
+	<section id="videoplayer">
+			<video id="content" controls="controls" width="826" height="360" poster="website/images/tos-poster.jpg" preload="metadata">
 				<source type="video/webm" src="https://acornmedia.herokuapp.com/media/tears_of_steel_480.webm" />
 				<source type="video/mp4" src="https://acornmedia.herokuapp.com/media/tears_of_steel_480.mp4" />
-				
-				<track src="subs/TOS-arabic.srt" kind="subtitles" srclang="ar" label="Arabic" />
-				<track src="subs/TOS-japanese.srt" kind="subtitles" srclang="jp" label="Japanese" />
-				<track src="subs/TOS-english.srt" kind="subtitles" srclang="en" label="English" />
-				<track src="subs/TOS-turkish.srt" kind="subtitles" srclang="tr" label="Turkish" />
-				<track src="subs/TOS-ukrainian.srt" kind="subtitles" srclang="uk" label="Ukrainian" />
-				
-				You can download Tears of Steel at <a href="http://mango.blender.org/">mango.blender.org</a>.
 			</video>
-          <div id="adcontainer">
-          </div>
-          <button id="playpause">&#9654;</button>
-			<figcaption id="full-descript">
-				<p><em>"Tears of Steel"</em> was realized with crowd-funding by users of the open source 3D creation tool <a href="http://www.blender.org">Blender</a>. Target was to improve and test a complete open and free pipeline for visual effects in film - and to make a compelling sci-fi film in Amsterdam, the Netherlands. </p>
-				<p>(CC) Blender Foundation - <a href="http://www.tearsofsteel.org">http://www.tearsofsteel.org</a></p>
-			</figcaption>
-		</figure>
+      <div id="adcontainer">
+      </div>
 	</section>
 	
 	<section id="how">
-  <div id="companion-medrec" style="width:300px; height:250px;">
-    <script type="text/javascript">
-      pushTag( 'companion-medrec', [300, 250] );
-    </script>
-  </div>
+    <div id="companion-medrec" style="width:300px; height:250px;">
+      <script type="text/javascript">
+        pushTag( 'companion-medrec', [300, 250] );
+      </script>
+    </div>
   
-  <div id="console">
-  Welcome to IMA HTML5 SDK Demo!
-  </div>
+    <div id="console">
+      Welcome to IMA HTML5 SDK Demo!
+    </div>
 	</section>
-				
-	<footer>
-		<p>See the <a href="demos.html">Acorn Media Player Demos</a> page. </p>
-		<p>Acorn Media Player is a project by <a href="http://www.ghinda.net">Ionuț Colceriu</a>. </p>
-		<p>Tears of Steel is &copy; copyright the Blender Foundation | <a href="http://www.tearsofsteel.org">www.tearsofsteel.org</a>, licensed under a <a href="http://mango.blender.org/sharing/">Creative Commons</a> license. </p>
-	</footer>
-
-
-	<script src="jquery/jquery.min.js"></script>
-	<script src="jquery/jquery-ui-1.10.0.custom.min.js"></script>
-	
-	<script src="acornmediaplayer/jquery.acornmediaplayer.js"></script>	
-	
+					
 	<!-- Call the plugin -->
 	<script>
-		jQuery(function() {
-			jQuery('video, audio').acornMediaPlayer();
-      mainController = new MainController(new PlayerController());
-		});
+  window.onload = function() {
+    mainController = new MainController(new PlayerController());
+  };
 	</script>
-		
-	<script>var _gaq=[['_setAccount','UA-19824700-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
-	
+			
 </body>
 </html>

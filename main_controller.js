@@ -5,19 +5,17 @@
 
 var MainController = function(playerController) {
   this.console = document.getElementById('console');
-  this.playButton = document.getElementById('playpause');
-  this.playButton.addEventListener(
-      'click',
-      this.bind(this, this.onClick),
-      false);
-
+    
   this.playing = false;
   this.adsActive = false;
   this.adsDone = false;
 
-  this.playerController = playerController;
-  
+  this.playerController = playerController;  
   this.playerController.contentPlayer.controls = true;
+    this.playerController.contentPlayer.addEventListener(
+      'click',
+      this.bind(this, this.onClick),
+      false);
   
   this.adsController = new AdsController(this, this.playerController);
   this.adTagUrl = 'http://pubads.g.doubleclick.net/gampad/ads?sz=400x300&iu=%2F6062%2Fiab_vast_samples&ciu_szs=300x250%2C728x90&impl=s&gdfp_req=1&env=vp&output=xml_vast2&unviewed_position_start=1&url=[referrer_url]&correlator=[timestamp]&cust_params=iab_vast_samples%3Dlinear';
@@ -30,8 +28,8 @@ MainController.prototype.bind = function(thisObj, fn) {
 };
 
 MainController.prototype.onClick = function() {
+  this.log("clicked");
   if (!this.adsDone) {
-
     // The user clicked/tapped - inform the ads controller that this code
     // is being run in a user action thread.
     this.adsController.initialUserAction();
@@ -65,15 +63,11 @@ MainController.prototype.onClick = function() {
 };
 
 MainController.prototype.updateChrome = function() {
-  if (this.playing) {
-    this.playButton.textContent = 'II';
-    this.playButton.className = "playing";
-  } else {
-    // Unicode play symbol.
-      this.playButton.className = "paused";
-      this.playButton.textContent = String.fromCharCode(9654);
+  if (this.adsActive) {    
+    this.playerController.adContainer.className = "playing_ad";
+  }else{
+    this.playerController.adContainer.className = "playing_content";
   }
-  
 };
 
 MainController.prototype.log = function(message) {

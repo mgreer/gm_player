@@ -8,8 +8,8 @@ var PlayerController = function() {
   this.contentPlayer = document.getElementById('content');
   this.adContainer = document.getElementById('adcontainer');
 
-  this.width = 640;
-  this.height = 360;
+  this.width = this.contentPlayer.width;
+  this.height = this.contentPlayer.height;
 
   this.adPlaying = false;
 };
